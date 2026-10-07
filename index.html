@@ -21,18 +21,19 @@
   </div>
   <div class="card-body">
     <form>
-          <label for="fname">Subtotal ($)</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Tip Percentage (as decimal, e.g. 0.2)</label><br>
-  <input type="text" id="lname" name="lname">
-      <button type="button" href="#" class="btn btn-primary">Calculate Tip</button>
+          <label for="subtotal">Subtotal ($)</label><br>
+  <input type="text" id="subtotal" name="subtotal"><br>
+  <label for="percentage">Tip Percentage (as decimal, e.g. 0.2)</label><br>
+  <input type="text" id="percentage" name="percentage"><br>
+
+      <button type="button" class="btn btn-primary" id="calcTip" onclick="calculateTip()">Calculate Tip</button>
     </form>
     
      <div class="card-footer">
   
-    <span>Tip Amount: <span>--</span></span>
+    <p>Tip Amount: <span id="tipAmt">--</span></p>
     <br>
-    <span>Total Bill: <span>--</span></span>
+    <p>Total Bill: <span id="bill">--</span></p>
   </div>
   </div>
 </div>
@@ -46,15 +47,16 @@
   </div>
   <div class="card-body">
     <form>
-    <label for="fname">Hours Worked</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Hourly Rate ($)</label><br>
-  <input type="text" id="lname" name="lname">
-      <button type="button"  href="#" class="btn btn-success">Calculate Paycheck</button>
+    <label for="hours">Hours Worked</label><br>
+  <input type="text" id="hours" name="hours"><br>
+  <label for="rate">Hourly Rate ($)</label><br>
+  <input type="text" id="rate" name="rate">
+  <br>
+      <button type="button"   class="btn btn-success" id="calcPay">Calculate Paycheck</button>
     </form>
     
      <div class="card-footer">
-    <span>Paycheck Amount: <span>--</span></span>
+    <span>Paycheck Amount: <span id="check">--</span></span>
   </div>
   </div>
 </div></div>
@@ -70,11 +72,11 @@
   </div>
   <div class="card-body">
     <form>
-          <label for="fname">Points Earned</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Total Points</label><br>
-  <input type="text" id="lname" name="lname">
-      <button type="button"  href="#" class="btn btn-warning">Calculate Grade</button>
+          <label for="earned">Points Earned</label><br>
+  <input type="text" id="earned" name="earned"><br>
+  <label for="total">Total Points</label><br>
+  <input type="text" id="total" name="total">
+      <button type="button"   class="btn btn-warning" id="calcGrade">Calculate Grade</button>
 
     </form>
     <!-- <h5 class="card-title">Special title treatment</h5>
@@ -82,7 +84,7 @@
     <!-- <br>
     <br> -->
      <div class="card-footer">
-    <span>Your Grade: <span>--</span></span>
+    <span>Your Grade: <span id="grade">--</span></span>
   </div>
   </div>
 </div>
@@ -98,11 +100,11 @@
   </div>
   <div class="card-body">
     <form>
-          <label for="fname">Tank Size (gallons)</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Price per Gallon ($)</label><br>
-  <input type="text" id="lname" name="lname">
-  <button type="button"  href="#" class="btn btn-danger">Calculate Gas Cost</button>
+          <label for="size">Tank Size (gallons)</label><br>
+  <input type="text" id="size" name="size"><br>
+  <label for="price">Price per Gallon ($)</label><br>
+  <input type="text" id="price" name="price">
+  <button type="button"   class="btn btn-danger" id="calcGas">Calculate Gas Cost</button>
     </form>
     <!-- <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
@@ -110,7 +112,7 @@
     
     <br> -->
      <div class="card-footer">
-    <span>Cost to Fill: <span>--</span></span>
+    <span>Cost to Fill: <span id="fillCost">--</span></span>
   </div>
   </div>
 </div>
