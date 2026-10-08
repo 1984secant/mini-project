@@ -1,24 +1,11 @@
 //1
-let subTot = document.getElementById("subtotal");
-let perc = document.getElementById("percentage");
 let calcTip = document.getElementById("calcTip");
-let tipAmt = document.getElementById("tipAmt");
-let bill = document.getElementById("bill");
 //2
-let hours = document.getElementById("hours").innerHTML;
-let rate = document.getElementById("rate").innerHTML;
 let calcPay = document.getElementById("calcPay");
-let check = document.getElementById("check").innerHTML;
 //3
-let ptsEarn = document.getElementById("earned").innerHTML;
-let ptsTot = document.getElementById("total").innerHTML;
 let calcGrade = document.getElementById("calcGrade");
-let grade = document.getElementById("grade").innerHTML;
 //4
-let size = document.getElementById("size").innerHTML;
-let price = document.getElementById("price").innerHTML;
 let calcGas = document.getElementById("calcGas");
-let cost = document.getElementById("fillCost").innerHTML;
 
 // tipAmount = subTotal * percentage;
 // totalBill = subTotal + tipAmount;
@@ -29,11 +16,51 @@ let cost = document.getElementById("fillCost").innerHTML;
 
 // gasCost = tankGallons * perGallon;
 
-calcTip.addEventListener('click', calculateTip);
+document.getElementById("calcTip").addEventListener('click', calculateTip);
 
 function calculateTip(){
-    tipAmt = subTot * perc;
-    bill = subTot + tipAmt;
+  subtotal = document.getElementById("subtotal").value;
+  percentage = document.getElementById("percentage").value;
+  
+
+  let tipAmt = subtotal * percentage;
+  let bill = tipAmt.valueAsNumber + subtotal;
+
+  document.getElementById("tipAmt").textContent = tipAmt;
+  document.getElementById("bill").textContent = bill;
+
 }
 
-console.log(subTot.value*perc.value)
+document.getElementById("calcPay").addEventListener('click', calculatePay);
+
+function calculatePay(){
+  hours = document.getElementById("hours").value;
+  rate = document.getElementById("rate").value;
+
+  let paycheck = hours * rate;
+
+  document.getElementById("check").textContent = paycheck;
+}
+
+document.getElementById("calcGrade").addEventListener('click', calculateGrade);
+
+function calculateGrade(){
+  earned = document.getElementById("earned").value;
+  total = document.getElementById("total").value;
+
+  let grade = Math.round((earned/total)*100);
+
+  document.getElementById("grade").textContent = grade;
+}
+
+
+document.getElementById("calcGas").addEventListener('click', calculateGas);
+
+function calculateGas(){
+  price = document.getElementById("price").value;
+  tankSize = document.getElementById("size").value;
+
+  let cost = price * tankSize;
+
+  document.getElementById("fillCost").textContent = cost;
+}
